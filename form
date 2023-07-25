@@ -1,0 +1,58 @@
+import React, { useState } from 'react';
+import { Button, TextInput, View } from 'react-native';
+
+const FormComponent = () => {
+  const [negara, setNegara] = useState('');
+  const [pelabuhan, setPelabuhan] = useState('');
+  const [barang, setBarang] = useState('');
+  const [harga, setHarga] = useState('');
+  const [persentase, setPersentase] = useState('');
+  const [tarif, setTarif] = useState('');
+
+  const submitForm = () => {
+    // handle form submission here
+    const formValues = { negara, pelabuhan, barang, harga, persentase, tarif };
+    console.log(formValues);
+  };
+
+  return (
+    <View>
+      <TextInput
+        value={negara}
+        onChangeText={setNegara}
+        placeholder="Negara"
+      />
+      <TextInput
+        value={pelabuhan}
+        onChangeText={setPelabuhan}
+        placeholder="Pelabuhan"
+      />
+      <TextInput
+        value={barang}
+        onChangeText={setBarang}
+        placeholder="Barang"
+      />
+      <TextInput
+        value={harga}
+        onChangeText={setHarga}
+        placeholder="Harga"
+        keyboardType="numeric"
+      />
+      <TextInput
+        value={persentase}
+        onChangeText={setPersentase}
+        placeholder="Persentase"
+        keyboardType="numeric"
+      />
+      <TextInput
+        value={tarif}
+        onChangeText={setTarif}
+        placeholder="Tarif"
+        keyboardType="numeric"
+      />
+      <Button title="Submit" onPress={submitForm} />
+    </View>
+  );
+};
+
+export default FormComponent;
